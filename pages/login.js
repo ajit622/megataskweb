@@ -1,12 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './componets/header'
 import Link from 'next/link'
 import connectDB from './connectDb'
 
 
 const Login = () => {
-    const {formState , setFormState}  = userState({email:"",password:""}); 
-    
+    const [formState , setFormState]  = userState({email:"",password:""}); 
+    const [message , setMessage]      =  useState("");
+    const [showMessage , setShowMessage]  = useState(false);
+    const handleInput = (e) =>{
+        const {id, value}  = e.target;
+        setFormState((prev) => ({
+            ...prev,
+            [id]:value,
+        }));
+    }
+
+    const handleFormSubmit = async (e) =>{
+        e.preventDefault();
+        try {
+            const res = await fetch("api/user/login",{
+
+            });
+        } catch (error) {
+            
+        }
+    }
     return (
         
         <>
