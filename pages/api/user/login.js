@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     if (req.method === "POST") {
         try {
             const {email, password}  = req.body;
-            
+            return res.status(400).json({message:req}); 
             if(!email || !password) {
                 return res.status(400).json({message:"Please Enter Required Fields "});
             } 
